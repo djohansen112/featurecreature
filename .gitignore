@@ -33,9 +33,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-#ignore database structure:
-/db/seeds.rb
-/db/schema.rb
-db/schema.rb
-db/seeds.rb
