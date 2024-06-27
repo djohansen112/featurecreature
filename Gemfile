@@ -68,4 +68,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'net-pop', github: 'ruby/net-pop'
+
 gem 'devise', '~> 4.9'
