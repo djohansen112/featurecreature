@@ -37,3 +37,5 @@
 #ignore database structure:
 /db/seeds.rb
 /db/schema.rb
+db/schema.rb
+db/seeds.rb
