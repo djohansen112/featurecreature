@@ -3,6 +3,7 @@
   <%= link_to "Edit this page", edit_post_path%>
 <%  end %>
 <div>
+  <%= image_tag @post.cover_image if @post.cover_image.present?%>
   <h1> <%= @post.title %> </h1>
-  <p><%= @post.body %></p>
+  <p><%= @post.content %></p>
 </div>

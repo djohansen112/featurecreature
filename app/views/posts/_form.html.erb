@@ -9,8 +9,20 @@
     <%= form.text_field :title%>
   </div>
   <div>
-    <%= form.label :body%>
-    <%= form.text_area :body%>
+    <%= form.label :cover_image%>
+    <%= form.file_field :cover_image%>
+    <%if @post.cover_image.present?%>
+      <%= image_tag @post.cover_image %>
+      <%= link_to "Remove image...", post_cover_image_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure? Any other changes will be lost!"} %>
+    <%end%>
+  </div>
+  <div>
+    <%= form.label :content%>
+    <%= form.rich_text_area :content%>
+  </div>
+  <div>
+    <%= form.label :published_at%>
+    <%= form.date_select :published_at, include_blank: true%>
   </div>
   <%= form.button "Submit"%>
 <% end %>

@@ -1,7 +1,17 @@
 <h1>Index page</h1>
 <% @posts.each do |post| %>
   <div>
+    <% if post.draft? %>
+      <div><br>
+        Draft </div>
+    <% elsif post.scheduled? %>
+      <div><br>
+        Scheduled for <%= post.published_at %> </div>
+    <% else %>
+      <br>
+    <%end%>
     <%= link_to post.title, post %>
-    <%= post.body %>
+    <%= post.content %>
   </div>
 <% end %>
+<%== pagy_nav(@pagy) %>
