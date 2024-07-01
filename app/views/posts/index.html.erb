@@ -6,12 +6,28 @@
         Draft </div>
     <% elsif post.scheduled? %>
       <div><br>
-        Scheduled for <%= post.published_at %> </div>
+        Scheduled for <%= post.published_at.strftime("%d-%b-%Y") %> </div>
     <% else %>
       <br>
     <%end%>
-    <%= link_to post.title, post %>
-    <%= post.content %>
   </div>
+  <div>
+    <% if post.cover_image.present? %>
+      <div><%= image_tag post.cover_image %> </div>
+    <%end%>
+  </div>
+  <div><%= link_to post.title, post %> </div>
+  <div>Category: <% if post.category_id.present? %>
+      /<%= post.category.name %>
+    <% else %>
+      None
+    <% end %>
+    <% if post.published_at.present? && !post.scheduled? %>
+      Published: <%= time_ago_in_words post.published_at %> ago
+    <%end%></div>
+  <div>
+    <%= post.content.to_plain_text.truncate_words(100) %>
+  </div>
+  Comments: <%= post.comments.count %>
 <% end %>
 <%== pagy_nav(@pagy) %>

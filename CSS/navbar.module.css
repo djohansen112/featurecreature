@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  font-family: fantasy;
+}
+
+.logoContainer {
+  display: flex;
+  flex: 2;
+  justify-content: flex-start;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1280px) {
+  .imageLogo {
+    height: 75%;
+    width: 75%;
+  }
+  .links {
+    font-size: 18px;
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .imageLogo {
+    height: 100px;
+    width: 50px;
+    flex: 1;
+  }
+}
+@media screen and (max-width: 640px) {
+  .links {
+    justify-content: flex-end;
+  }
+  .imageLogo {
+    flex: 2;
+  }
+  .link {
+    display: none;
+  }
+}

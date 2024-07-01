@@ -1,0 +1,6 @@
+<div>
+  <h1><%= @categories.name%></h1>
+  <% @categories.posts.each do |post|%>
+    <%=link_to post.title, post %>
+  <% end %>
+</div>

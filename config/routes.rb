@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
   resources :posts do
     resource :cover_image, only: [:destroy], module: :posts
+    resources :comments
   end
+
+  get 'cat/:name', to: 'posts#showcategory'
 
   # Defines the root path route ("/")
   root to: 'posts#index'

@@ -1,0 +1,25 @@
+.categoryList {
+  margin-top: 35px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.categoryItem {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.categoryItem.testing {
+  background-color: blueviolet;
+}
+.development {
+  background-color: chocolate;
+}
+.category1 {
+  background-color: cornflowerblue;
+}
+.category2 {
+  background-color: rebeccapurple;
+}

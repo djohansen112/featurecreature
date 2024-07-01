@@ -22,7 +22,15 @@
   </div>
   <div>
     <%= form.label :published_at%>
-    <%= form.date_select :published_at, include_blank: true%>
+    <%= form.date_select :published_at, include_blank: true, selected: Date.today %>
+  </div>
+  <div>
+    <%= form.label :category %>
+    <% for category in @categories %>
+      <div>
+        <%= radio_button_tag "post[category_id]", category.id, @post.category_id == category.id %><%= category.name %>
+      </div>
+    <% end %>
   </div>
   <%= form.button "Submit"%>
 <% end %>
