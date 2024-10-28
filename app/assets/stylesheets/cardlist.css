@@ -1,0 +1,45 @@
+.cardListcontainer {
+  flex: 5;
+}
+
+.cardListtitle {
+  margin: 50px 0px;
+}
+
+.postcontainer {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.postimageContainer {
+  flex: 1;
+  height: 350px;
+  position: relative;
+}
+
+.postimage {
+  object-fit: cover;
+}
+
+.posttextContainer {
+  display: flex;
+  flex: 1;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.postdate {
+  color: gray;
+}
+
+.postcategory {
+  font-weight: 500;
+  color: crimson;
+}
+.postdesc {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--softTextcolor);
+}

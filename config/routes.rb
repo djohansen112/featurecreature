@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'cat/:name', to: 'posts#showcategory'
+  get 'cat/:name', to: 'posts#showcategory', as: 'category'
 
+  get 'categories', to: 'posts#categories', as: 'categories'
+  get 'about', to: 'posts#about', as: 'about'
+  get 'contact', to: 'posts#contact', as: 'contact'
   # Defines the root path route ("/")
   root to: 'posts#index'
 end

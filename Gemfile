@@ -73,3 +73,5 @@ gem 'net-pop', github: 'ruby/net-pop'
 gem 'devise', '~> 4.9'
 
 gem "pagy", "~> 8.6"
+
+gem "dotenv-rails", "~> 3.1"

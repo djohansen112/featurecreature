@@ -1,0 +1,21 @@
+<div class="catListcontainer">
+  <h1 class="catListtitle">Article categories</h1>
+  <div class="catListcategories">
+    <div class="catListcategory cat1">
+      <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+      <%= link_to "testing", category_path("testing") %>
+    </div>
+    <div class="catListcategory cat2">
+      <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+      <%= link_to "software", category_path("software") %>
+    </div>
+    <div class="catListcategory cat3">
+      <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+      <%= link_to "dev", category_path("dev") %>
+    </div>
+    <div class="catListcategory cat4">
+      <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+      <%= link_to "etc", category_path("etc") %>
+    </div>
+  </div>
+</div>

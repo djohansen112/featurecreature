@@ -1,3 +1,4 @@
+<% stylesheet_link_tag "show"%>
 <% if user_signed_in? %>
   <%= form_for [@post, @newcomment] do |form| %>
     <% if form.object.errors.any? %>
@@ -6,10 +7,9 @@
       <% end%>
     <% end%>
     <div>
-      <%= form.label :body%>
-      <%= form.text_field :body%>
+      <%= form.text_field :body, placeholder:"Leave a comment here...", class:"commenttextfield"%>
     </div>
-    <%= form.button "Submit"%>
+    <%= form.button "Submit", class:"commentsubmitbtn"%>
   <% end %>
 <% else%>
   You must sign in to leave a comment.

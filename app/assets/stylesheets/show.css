@@ -1,0 +1,134 @@
+.content-container {
+  display: flex;
+}
+
+.content-menucontainer {
+  flex: 1;
+  margin-top: 5%;
+}
+
+.content-articlecontainer {
+  flex: 6;
+  margin-right: 90px;
+}
+.content-adminarea {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: cornflowerblue;
+}
+
+.contentimage {
+  max-height: 350px;
+  padding: 30px;
+}
+.contentheading {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-image: linear-gradient(var(--softbg), var(--darkbg));
+  border-radius: 20px;
+}
+.contentimagecontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenttitle {
+  display: flex;
+  font-size: 24px;
+}
+.contentdetails {
+  text-transform: capitalize;
+}
+
+.commentcontent {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.contentcategory {
+  text-align: right;
+  padding: 5px;
+}
+.contentbody {
+}
+.contentcommentscontainer {
+  margin-top: 5%;
+}
+.contentcommentstitle {
+  margin-bottom: 10px;
+}
+.contentcommentsnew {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.contentcomments {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-left: 20px;
+  background-image: linear-gradient(var(--softbg), var(--darkbg));
+  border-radius: 20px;
+}
+.contentcommenter {
+  font-weight: 700;
+  padding: 5px;
+  background-color: var(--softTextcolor);
+}
+.commentsubmitbtn {
+  margin-top: 10px;
+  width: 80px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background: var(--brighthighlight);
+  color: var(--softTextcolor);
+  font-size: 1rem;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.commenttextfield {
+  padding: 20px;
+  width: 60%;
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+}
+.content-menupostitem {
+}
+
+/* .content-menuposttitle {
+}
+.content-menupostitem {
+} */
+.content-menupostimageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-menupostimage {
+  width: 80%;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+}
+/* .content-menuposttextContainer {
+}
+.content-menupostcategory {
+}
+.content-menupostTitle {
+}
+.content-menupostdetail {
+}
+.content-menupostdate {
+} */

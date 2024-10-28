@@ -1,33 +1,146 @@
-<h1>Index page</h1>
-<% @posts.each do |post| %>
-  <div>
-    <% if post.draft? %>
-      <div><br>
-        Draft </div>
-    <% elsif post.scheduled? %>
-      <div><br>
-        Scheduled for <%= post.published_at.strftime("%d-%b-%Y") %> </div>
-    <% else %>
-      <br>
-    <%end%>
+<% stylesheet_link_tag "index", "data-turbo-track": "reload" %>
+<% stylesheet_link_tag "pagy", "data-turbo-track": "reload" %>
+<div class="home-container">
+  <%# Featured %>
+  <div class="featured-container">
+    <h1 class="featured-title">
+      <b>Featured</b>
+    </h1>
+    <div class="featured-post">
+      <div class="featured-imgContainer">
+        <% if @featured.cover_image.present? %>
+          <%= image_tag @featured.cover_image,style: "height:100%;width:auto;", class:"postimage" %>
+        <% else %>
+          <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:100%;width:auto;",class:"postimage" %>
+        <%end%>
+      </div>
+      <div class="featured-textContainer">
+        <h1 class="featured-postTitle">
+          <%= link_to @featured.title, @featured %>
+        </h1>
+        <p class="featured-postDesc">
+          <%= @featured.content.to_plain_text.truncate_words(100) %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div>
-    <% if post.cover_image.present? %>
-      <div><%= image_tag post.cover_image %> </div>
-    <%end%>
+  <%# CategoryList %>
+  <div class="catListcontainer">
+    <h1 class="catListtitle">Popular Categories</h1>
+    <div class="catListcategories">
+      <div class="catListcategory cat1">
+        <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+        <%= link_to "testing", category_path("testing") %>
+      </div>
+      <div class="catListcategory cat2">
+        <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+        <%= link_to "software", category_path("software") %>
+      </div>
+      <div class="catListcategory cat3">
+        <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+        <%= link_to "dev", category_path("dev") %>
+      </div>
+      <div class="catListcategory cat4">
+        <%= image_tag "avatar_#{rand(1..23)}.png", style: "height:64px;width:64px;", class:"catListtimage"%>
+        <%= link_to "etc", category_path("etc") %>
+      </div>
+    </div>
   </div>
-  <div><%= link_to post.title, post %> </div>
-  <div>Category: <% if post.category_id.present? %>
-      /<%= post.category.name %>
-    <% else %>
-      None
-    <% end %>
-    <% if post.published_at.present? && !post.scheduled? %>
-      Published: <%= time_ago_in_words post.published_at %> ago
-    <%end%></div>
-  <div>
-    <%= post.content.to_plain_text.truncate_words(100) %>
+  <%# CardList %>
+  <div class="blogcontent">
+    <div class="cardListcontainer">
+      <h1 class="cardListtitle">Recent Posts</h1>
+      <div class="cardListposts">
+        <% @posts.each do |post| %>
+          <div class="postcontainer">
+            <div class="postimageContainer">
+              <% if post.cover_image.present? %>
+                <%= image_tag post.cover_image,style: "height: 350px;", class:"postimage" %>
+              <% else %>
+                <%= image_tag "avatar_#{rand(1..23)}.png", style: "height: 350px;",class:"postimage" %>
+              <%end%>
+            </div>
+            <div class="posttextContainer">
+              <h1 class="postTitle"> <%= link_to post.title, post %> </h1>
+              <div class="carddetail">
+                <% if post.draft? %>
+                  <p class="postdate">Draft</p>
+                <% elsif post.scheduled? %>
+                  <p class="postdate">Scheduled for <%= post.published_at.strftime("%d-%b-%Y") %></p>
+                <% elsif post.published_at.present? && !post.scheduled? %>
+                  <p class="postdate">Published: <%= time_ago_in_words post.published_at %> ago</p>
+                <% else %>
+                  <p>Error!</p>
+                <%end%>
+                <p class="postcategory">
+                  Category: 
+                  <% if post.category_id.present? %>
+                    <%= post.category.name %>
+                  <% end %></p>
+              </div>
+              <p class="postdesc">
+                <%= post.content.to_plain_text.truncate_words(100) %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="pagination">
+        <%== pagy_nav(@pagy) %>
+      </div>
+    </div>
+    <%# end cardlistcontainer%>
+    <%# Menu %>
+    <div class="menucontainer">
+      <h2 class="menusubtitle">What's hot?</h2>
+      <h1 class="menuposttitle">Most popular</h1>
+      <div class="menupostitems">
+        <div class="menupostitem">
+          <div class="menupostimageContainer">
+            <%= image_tag "avatar_#{rand(1..23)}.png", style: "width: 120px; height:120px", class:"menupostimage" %>
+          </div>
+          <div class="menuposttextContainer">
+            <span class="menupostcategory">
+              <%= @randompost.category.name%>
+            </span>
+            <h3 class="menupostTitle">
+              <%= link_to @randompost.title, @randompost %>
+            </h3>
+            <div class="menupostdetail">
+              <div class="menupostdate">Published: <%= time_ago_in_words @randompost.published_at %> ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="menusubtitle">Discover by topic</h2>
+      <h1 class="menuposttitle">Categories</h1>
+      <div class="menucategoryList">
+        <ul>
+          <li class ="menucategoryItem"><%= link_to "Testing", category_path("testing") %></li>
+          <li class ="menucategoryItem"><%= link_to "Software", category_path("software") %></li>
+          <li class ="menucategoryItem"><%= link_to "Development", category_path("dev") %></li>
+          <li class ="menucategoryItem"><%= link_to "/etc", category_path("etc") %></li>
+        </ul>
+      </div>
+      <h2 class="menusubtitle">Chosen by the editor</h2>
+      <h1 class="menuposttitle">Editor's Picks</h1>
+      <div class="menupostitem">
+        <div class="menupostimageContainer">
+          <%= image_tag "avatar_#{rand(1..23)}.png", style: "width: 120px; height:120px", class:"menupostimage" %>
+        </div>
+        <div class="menuposttextContainer">
+          <span class="menupostcategory">
+            <%= @popularpost.category.name%>
+          </span>
+          <h3 class="menupostTitle">
+            <%= link_to @popularpost.title, @popularpost%>
+          </h3>
+          <div class="menupostdetail">
+            <div class="menupostdate">Published: <%= time_ago_in_words @popularpost.published_at %> ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  Comments: <%= post.comments.count %>
-<% end %>
-<%== pagy_nav(@pagy) %>
+  <%# end Menu %>
+</div>

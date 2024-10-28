@@ -1,0 +1,31 @@
+/* menucategories */
+
+.menucategoryList {
+  margin-top: 35px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menucategoryItem {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/*menu  */
+.menucontainer {
+  flex: 2;
+  margin-top: 60px;
+}
+
+.menusubtitle {
+  color: cornflowerblue;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.menutitle {
+  font-size: 20px;
+}

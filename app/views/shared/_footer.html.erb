@@ -1,0 +1,35 @@
+<% stylesheet_link_tag "footer", "data-turbo-track": "reload" %>
+<div class="footer-container">
+  <div class="footer-info">
+    <div class="footer-logo">
+      <%= image_tag "orc_avatar.png", style: "height:50px;width:50px;"%>
+      <h1 class="footer-logoText">Quality Quest</h1>
+    </div>
+    <p class="footer-desc">
+      <p>Welcome to my personal odyssey through the realm of software engineering! 
+        This blog is my sanctum, a digital scroll where I chronicle my adventures in coding, 
+        testing, and development. Here, I weave tales of triumphs and tribulations, sharing 
+        the wisdom gleaned from my experiences. Each entry is a fragment of my journey, penned 
+        with candor and a touch of whimsy. Venture forth, dear reader, with the understanding 
+        that these are my musings, untethered from my professional endeavors. They are the 
+        musings of a software testing engineer by day, and a digital bard by night, inviting 
+        you to a fellowship of code and curiosity.</p>
+    </p>
+  </div>
+  <div class="footer-links">
+    <div class="footer-list">
+      <h3 class="footer-listTitle">Links</h3>
+      <%= link_to "Home", root_path%>
+      <%= link_to "Categories", "categories"%>
+      <%= link_to "About", "about"%>
+      <%= link_to "Contact", "contact"%>
+    </div>
+    <div class="footer-list">
+      <h3 class="footer-listTitle">Categories</h3>
+      <%= link_to "Testing", category_path("testing") %>
+      <%= link_to "Software", category_path("software") %>
+      <%= link_to "Development", category_path("dev") %>
+      <%= link_to "/etc", category_path("etc") %>
+    </div>
+  </div>
+</div>
